@@ -1,12 +1,12 @@
 <!doctype html>
 <html lang="pt-BR">
 <head>
-  <meta charset="utf-8" />                                             <!-- codificação -->
-  <meta name="viewport" content="width=device-width,initial-scale=1" /> <!-- responsividade -->
-  <title>About Us - Demo</title>                                       <!-- título -->
-  <link rel="stylesheet" href="styles.css">                            <!-- CSS relativo -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet"> <!-- font -->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"> <!-- ícones -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>About Us - Demo</title>
+  <link rel="stylesheet" href="styles.css"> <!-- CSS relativo -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
 </head>
 <body>
 
@@ -17,13 +17,13 @@
   <main>
     <section class="about-hero">
       <div class="container">
-        <h1>About Us</h1>                                              <!-- título da seção -->
-        <p>Informações sobre a empresa e missão.</p>                    <!-- parágrafo introdutório -->
+        <h1>About Us</h1>
+        <p>Informações sobre a empresa e missão.</p>
       </div>
     </section>
 
     <section class="company-info container">
-      <h2>Information about the company</h2>                           <!-- subtítulo -->
+      <h2>Information about the company</h2>
       <p>An introduction to the team members, displaying their names and their designated roles.</p>
 
       <div class="teams" id="teamsGrid">
@@ -32,17 +32,16 @@
           <img src="fragments/avatar-placeholder.png" alt="Ana Silva" class="team-avatar"> <!-- caminho relativo -->
           <h3>Ana Silva</h3>
           <p class="role">RH</p>
-          <button class="btn-contact" type="button" data-name="Ana Silva">Entrar em contato</button> <!-- botão com data-name -->
+          <button class="btn-contact" type="button" data-name="Ana Silva">Entrar em contato</button>
         </article>
 
         <article class="team-card">
-          <img src="fragments/avatar-placeholder.png" alt="Bruno Costa" class="team-avatar"> <!-- usar mesma pasta fragments/ -->
+          <img src="fragments/avatar-placeholder.png" alt="Bruno Costa" class="team-avatar">
           <h3>Bruno Costa</h3>
           <p class="role">Vendedor</p>
           <button class="btn-contact" type="button" data-name="Bruno Costa">Entrar em contato</button>
         </article>
 
-        <!-- adicione os demais perfis seguindo o mesmo padrão -->
       </div>
     </section>
   </main>
@@ -51,25 +50,25 @@
   <div id="shared-footer"></div>
 
   <script>
-    // função simples e robusta para carregar fragments via fetch e injetar no DOM
+    // carregar fragments (caminhos relativos)
     function loadFragment(url, containerId) {
-      fetch(url)                                                          // busca o arquivo relativo passado
+      fetch(url)
         .then(function(response) {
-          if (!response.ok) throw new Error('Network response was not ok: ' + response.status); // checa status HTTP
-          return response.text();                                         // lê como texto
+          if (!response.ok) throw new Error('Network response was not ok: ' + response.status);
+          return response.text();
         })
         .then(function(html) {
-          var container = document.getElementById(containerId);           // encontra o container alvo
-          if (!container) return;                                         // se não existir, aborta
-          container.innerHTML = html;                                     // injeta o HTML do fragmento
-          markActiveLink(container);                                      // destaca link ativo se houver menu
+          var container = document.getElementById(containerId);
+          if (!container) return;
+          container.innerHTML = html;
+          markActiveLink(container);
         })
         .catch(function(err) {
-          console.error('Erro ao carregar fragmento:', err);              // loga erro para debug
+          console.error('Erro ao carregar fragmento:', err);
         });
     }
 
-    // adiciona classe .active ao link cujo href corresponde ao arquivo atual
+    // destaque do link ativo no menu
     function markActiveLink(container) {
       var el = typeof container === 'string' ? document.getElementById(container) : container;
       if (!el) return;
@@ -81,19 +80,18 @@
       });
     }
 
-    // comportamento básico dos botões de contato (exemplo)
+    // comportamento dos botões de contato (exemplo)
     document.addEventListener('click', function(e) {
-      var btn = e.target.closest('.btn-contact');                        // detecta cliques em botões .btn-contact
+      var btn = e.target.closest('.btn-contact');
       if (!btn) return;
       var name = btn.dataset.name || 'Contato';
-      var msg = prompt('Enviar mensagem para ' + name + '\nDigite sua mensagem:'); // prompt de exemplo
-      if (msg) alert('Mensagem enviada a ' + name + ':\n\n' + msg);       // alerta simulando envio
+      var msg = prompt('Enviar mensagem para ' + name + '\nDigite sua mensagem:');
+      if (msg) alert('Mensagem enviada a ' + name + ':\n\n' + msg);
     });
 
-    // carregar header e footer usando caminhos relativos (sem / inicial)
-    loadFragment('fragments/header.html', 'shared-header');               // header dentro de fragments/
-    loadFragment('fragments/footer.html', 'shared-footer');               // footer dentro de fragments/
+    // carregar header e footer (caminhos relativos)
+    loadFragment('fragments/header.html', 'shared-header');
+    loadFragment('fragments/footer.html', 'shared-footer');
   </script>
 </body>
 </html>
-
