@@ -1,53 +1,53 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Leave Your Trip to Us</title>
-  <link rel="stylesheet" href="styles.css">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
+  <meta charset="UTF-8">                                             <!-- define codificação -->
+  <meta name="viewport" content="width=device-width,initial-scale=1">  <!-- responsividade -->
+  <title>Leave Your Trip to Us</title>                                <!-- título da aba -->
+  <link rel="stylesheet" href="styles.css">                           <!-- CSS relativo (arquivo na raiz) -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet"> <!-- font externa -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"> <!-- ícones -->
 </head>
 <body>
 
   <!-- imagem de fundo como elemento que rola com a página -->
-  <img src="https://cesinhafx.github.io/travel_recomendations/image%20(2).png" alt="fundo" class="page-bg">
+  <img src="images/image2.png" alt="fundo" class="page-bg">            <!-- caminho relativo: /images/image2.png -->
 
-  <!-- placeholders únicos para injeção de header e footer -->
+  <!-- placeholder para header (será injetado via fetch) -->
   <div id="shared-header"></div>
 
   <!-- Conteúdo específico da página -->
   <main>
     <section class="hero">
       <div class="hero-text">
-        <h2>𝒴𝑜𝓊𝓇 𝒹𝓇𝑒𝒶𝓂, <br>𝑜𝓃𝑒 𝒸𝓁𝒾𝒸𝓀 𝒶𝓌𝒶𝓎</h2>
-        <button id="more-informations" type="button">Make your dream come true here</button>
+        <h2>Your dream, one click away</h2>                             <!-- título principal; evita position:absolute -->
+        <button id="more-informations" type="button">Make your dream come true here</button> <!-- botão de ação -->
       </div>
-      <!-- espaço para permitir rolagem no exemplo -->
+      <!-- espaço para permitir rolagem no exemplo (apenas demo) -->
       <div style="height:2000px"></div>
     </section>
   </main>
 
+  <!-- placeholder para footer (será injetado via fetch) -->
   <div id="shared-footer"></div>
 
   <script>
     // carrega um fragmento HTML e injeta no container especificado
     function loadFragment(url, containerId) {
-      fetch(url)
+      fetch(url)                                                        // requisição ao servidor para o arquivo relativo
         .then(function(response) {
-          if (!response.ok) throw new Error('Network response was not ok: ' + response.status);
-          return response.text();
+          if (!response.ok) throw new Error('Network response was not ok: ' + response.status); // se status != 200..299
+          return response.text();                                       // lê o conteúdo como texto (HTML)
         })
         .then(function(html) {
-          var container = document.getElementById(containerId);
-          if (!container) return;
-          container.innerHTML = html;
-          // após inserir o fragmento, aplica comportamento necessário (ex: destacar link ativo)
-          markActiveLink(container);
-          runFragmentScripts(container);
+          var container = document.getElementById(containerId);         // encontra o container pelo id
+          if (!container) return;                                       // se não existe, aborta
+          container.innerHTML = html;                                   // injeta o HTML do fragmento
+          markActiveLink(container);                                    // destaca link ativo no menu (se existir)
+          runFragmentScripts(container);                                // executa scripts inline dentro do fragmento (se houver)
         })
         .catch(function(err) {
-          console.error('Erro ao carregar fragmento:', err);
+          console.error('Erro ao carregar fragmento:', err);            // loga erro no console para debug
         });
     }
 
@@ -59,7 +59,7 @@
         var links = containerEl.querySelectorAll('a[href]');
         var current = window.location.pathname.split('/').pop() || 'index.html';
         links.forEach(function(a) {
-          var href = a.getAttribute('href').split('/').pop();
+          var href = (a.getAttribute('href') || '').split('/').pop();
           if (href === current) a.classList.add('active'); else a.classList.remove('active');
         });
       } catch (e) {
@@ -76,31 +76,35 @@
         scripts.forEach(function(oldScript) {
           var newScript = document.createElement('script');
           if (oldScript.src) {
-            newScript.src = oldScript.src;
+            newScript.src = oldScript.src;                               // preserva src de scripts externos
           } else {
-            newScript.textContent = oldScript.textContent;
+            newScript.textContent = oldScript.textContent;               // preserva scripts inline
           }
-          // preserve type if present
-          if (oldScript.type) newScript.type = oldScript.type;
-          document.head.appendChild(newScript);
-          document.head.removeChild(newScript);
+          if (oldScript.type) newScript.type = oldScript.type;          // preserva type se houver
+          document.head.appendChild(newScript);                         // insere para execução
+          document.head.removeChild(newScript);                         // remove imediatamente para limpeza
         });
       } catch (e) {
         console.error('runFragmentScripts error:', e);
       }
     }
 
-    // caminhos dos fragments - ajuste conforme estrutura do servidor
-    loadFragment('/fragments/header.html', 'shared-header');
-    loadFragment('/fragments/footer.html', 'shared-footer');
+    // Carregar fragments usando caminhos relativos (ajuste se fragments estiverem em outra pasta)
+    loadFragment('fragments/header.html', "shared-header");             // header.html dentro de fragments/
+    loadFragment('fragments/footer.html', 'shared-footer');             // footer.html dentro de fragments/
 
-    // exemplo de comportamento do botão hero (opcional)
+    // comportamento do botão hero (rolar até o footer)
     document.addEventListener('click', function(e) {
       if (e.target && e.target.id === 'more-informations') {
-        // exemplo simples: rolar até o footer quando clicado
         var footer = document.getElementById('shared-footer');
         if (footer) footer.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
+    });
+  </script>
+
+</body>
+</html>
+
     });
   </script>
 
