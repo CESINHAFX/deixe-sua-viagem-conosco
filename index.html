@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">                                             <!-- define codificação -->
-  <meta name="viewport" content="width=device-width,initial-scale=1">  <!-- responsividade -->
-  <title>Leave Your Trip to Us</title>                                <!-- título da aba -->
-  <link rel="stylesheet" href="styles.css">                           <!-- CSS relativo (arquivo na raiz) -->
+  <meta charset="UTF-8">                                           <!-- codificação -->
+  <meta name="viewport" content="width=device-width,initial-scale=1"> <!-- responsividade -->
+  <title>Leave Your Trip to Us</title>                             <!-- título da aba -->
+  <link rel="stylesheet" href="styles.css">                        <!-- CSS relativo (arquivo na raiz) -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet"> <!-- font externa -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"> <!-- ícones -->
 </head>
 <body>
 
-  <!-- imagem de fundo como elemento que rola com a página -->
-  <img src="images/image2.png" alt="fundo" class="page-bg">            <!-- caminho relativo: /images/image2.png -->
+  <!-- imagem de fundo (link HTTPS conforme solicitado) -->
+  <img src="https://cesinhafx.github.io/travel_recomendations/image%20(2).png" alt="fundo" class="page-bg"> <!-- mantive o link HTTPS conforme pediu -->
 
   <!-- placeholder para header (será injetado via fetch) -->
   <div id="shared-header"></div>
@@ -20,34 +20,33 @@
   <main>
     <section class="hero">
       <div class="hero-text">
-        <h2>Your dream, one click away</h2>                             <!-- título principal; evita position:absolute -->
-        <button id="more-informations" type="button">Make your dream come true here</button> <!-- botão de ação -->
+        <h2>Your dream, one click away</h2>                         <!-- título principal -->
+        <button id="more-informations" type="button">Make your dream come true here</button> <!-- botão -->
       </div>
-      <!-- espaço para permitir rolagem no exemplo (apenas demo) -->
-      <div style="height:2000px"></div>
+      <div style="height:2000px"></div>                            <!-- espaço demo para rolagem -->
     </section>
   </main>
 
-  <!-- placeholder para footer (será injetado via fetch) -->
+  <!-- placeholder para footer -->
   <div id="shared-footer"></div>
 
   <script>
     // carrega um fragmento HTML e injeta no container especificado
     function loadFragment(url, containerId) {
-      fetch(url)                                                        // requisição ao servidor para o arquivo relativo
+      fetch(url)
         .then(function(response) {
-          if (!response.ok) throw new Error('Network response was not ok: ' + response.status); // se status != 200..299
-          return response.text();                                       // lê o conteúdo como texto (HTML)
+          if (!response.ok) throw new Error('Network response was not ok: ' + response.status);
+          return response.text();
         })
         .then(function(html) {
-          var container = document.getElementById(containerId);         // encontra o container pelo id
-          if (!container) return;                                       // se não existe, aborta
-          container.innerHTML = html;                                   // injeta o HTML do fragmento
-          markActiveLink(container);                                    // destaca link ativo no menu (se existir)
-          runFragmentScripts(container);                                // executa scripts inline dentro do fragmento (se houver)
+          var container = document.getElementById(containerId);
+          if (!container) return;
+          container.innerHTML = html;
+          markActiveLink(container);     // destaca link ativo no fragment (se houver)
+          runFragmentScripts(container); // executa scripts embutidos no fragment
         })
         .catch(function(err) {
-          console.error('Erro ao carregar fragmento:', err);            // loga erro no console para debug
+          console.error('Erro ao carregar fragmento:', err);
         });
     }
 
@@ -76,38 +75,42 @@
         scripts.forEach(function(oldScript) {
           var newScript = document.createElement('script');
           if (oldScript.src) {
-            newScript.src = oldScript.src;                               // preserva src de scripts externos
+            newScript.src = oldScript.src;
           } else {
-            newScript.textContent = oldScript.textContent;               // preserva scripts inline
+            newScript.textContent = oldScript.textContent;
           }
-          if (oldScript.type) newScript.type = oldScript.type;          // preserva type se houver
-          document.head.appendChild(newScript);                         // insere para execução
-          document.head.removeChild(newScript);                         // remove imediatamente para limpeza
+          if (oldScript.type) newScript.type = oldScript.type;
+          document.head.appendChild(newScript);
+          document.head.removeChild(newScript);
         });
       } catch (e) {
         console.error('runFragmentScripts error:', e);
       }
     }
 
-    // Carregar fragments usando caminhos relativos (ajuste se fragments estiverem em outra pasta)
-    loadFragment('fragments/header.html', "shared-header");             // header.html dentro de fragments/
-    loadFragment('fragments/footer.html', 'shared-footer');             // footer.html dentro de fragments/
+    // carregar fragments usando caminhos relativos (fragments/header.html e fragments/footer.html)
+    loadFragment('fragments/header.html', 'shared-header');
+    loadFragment('fragments/footer.html', 'shared-footer');
 
-    // comportamento do botão hero (rolar até o footer)
+    // comportamento do botão hero: rolar até o footer
     document.addEventListener('click', function(e) {
       if (e.target && e.target.id === 'more-informations') {
         var footer = document.getElementById('shared-footer');
         if (footer) footer.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
     });
-  </script>
 
-</body>
-</html>
-
+    // comportamento dos botões do header (search / reset) - exemplo simples
+    document.addEventListener('click', function(e) {
+      if (e.target && e.target.id === 'btnSearch') {
+        var q = document.getElementById('Research') ? document.getElementById('Research').value : '';
+        alert('Pesquisar por: ' + q);
+      }
+      if (e.target && e.target.id === 'clean') {
+        if (document.getElementById('Research')) document.getElementById('Research').value = '';
+      }
     });
   </script>
-
 </body>
 </html>
-```
+
