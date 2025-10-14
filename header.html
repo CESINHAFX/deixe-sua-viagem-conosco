@@ -1,34 +1,33 @@
-<nav>
-    <div class="nav-left">
-      <h1 class="site-title">
-        Leave Your
-        <span class="trip-word">
-          <img src="https://cesinhafx.github.io/travel_recomendations/Copilot_20251014_061139.png"
-               alt="T decorado"
-               class="trip-image">
-          rip
-        </span>
-        to Us
-      </h1>
-    </div>
-  
-    <ul class="nav-center">
-      <li><a href="/index.html">Home</a></li>
-      <li><a href="/about_us.html">About Us</a></li>
-      <li><a href="/contact_us.html">Contact Us</a></li>
-    </ul>
-  
-    <div class="nav-right">
-      <input type="text" id="Research" placeholder="Enter a destination or keyword">
-      <button id="btnSearch" type="button">Search</button>
-      <button id="clean" type="button">Reset</button>
-    </div>
-  
-    <div class="social-icons" aria-label="redes sociais">
-      <a href="https://instagram.com" target="_blank" rel="noopener"><i class="fab fa-instagram" aria-hidden="true"></i><span class="sr-only">Instagram</span></a>
-      <a href="https://twitter.com" target="_blank" rel="noopener"><i class="fab fa-twitter" aria-hidden="true"></i><span class="sr-only">Twitter</span></a>
-      <a href="https://facebook.com" target="_blank" rel="noopener"><i class="fab fa-facebook" aria-hidden="true"></i><span class="sr-only">Facebook</span></a>
-      <a href="https://youtube.com" target="_blank" rel="noopener"><i class="fab fa-youtube" aria-hidden="true"></i><span class="sr-only">YouTube</span></a>
-    </div>
-  </nav>
-  
+<nav> <!-- container principal da navbar -->
+  <div class="nav-left"> <!-- área esquerda: logo / nome da empresa -->
+    <h1 class="site-title"> <!-- título/brand textual -->
+      Leave Your <!-- texto antes da palavra estilizada -->
+      <span class="trip-word"> <!-- wrapper para controlar imagem + texto -->
+        <img src="images/Copilot_20251014_061139.png" <!-- imagem decorativa substituindo a letra T (use path relativo ao projeto) -->
+             alt="T decorado" <!-- texto alternativo breve -->
+             class="trip-image"> <!-- classe para estilo da imagem inline -->
+        rip <!-- restante da palavra após a imagem -->
+      </span>
+      to Us <!-- continuidade do nome -->
+    </h1>
+  </div>
+
+  <ul class="nav-center"> <!-- área central: lista de links centralizados -->
+    <li><a href="index.html">Home</a></li> <!-- link para página inicial (relativo) -->
+    <li><a href="about_us.html">About Us</a></li> <!-- link para about_us (relativo) -->
+    <li><a href="contact_us.html">Contact Us</a></li> <!-- link para contact (relativo) -->
+  </ul>
+
+  <div class="nav-right"> <!-- área direita: campo de busca e botões -->
+    <input type="text" id="Research" placeholder="Enter a destination or keyword" aria-label="Search"> <!-- input de busca -->
+    <button id="btnSearch" type="button">Search</button> <!-- botão de busca -->
+    <button id="clean" type="button">Reset</button> <!-- botão limpar -->
+  </div>
+
+  <div class="social-icons" aria-label="redes sociais"> <!-- ícones sociais fixos; podem ficar fora do fluxo se necessário -->
+    <a href="https://instagram.com" target="_blank" rel="noopener"><i class="fab fa-instagram" aria-hidden="true"></i><span class="sr-only">Instagram</span></a> <!-- Instagram -->
+    <a href="https://twitter.com" target="_blank" rel="noopener"><i class="fab fa-twitter" aria-hidden="true"></i><span class="sr-only">Twitter</span></a> <!-- Twitter -->
+    <a href="https://facebook.com" target="_blank" rel="noopener"><i class="fab fa-facebook" aria-hidden="true"></i><span class="sr-only">Facebook</span></a> <!-- Facebook -->
+    <a href="https://youtube.com" target="_blank" rel="noopener"><i class="fab fa-youtube" aria-hidden="true"></i><span class="sr-only">YouTube</span></a> <!-- YouTube -->
+  </div>
+</nav>
