@@ -9,6 +9,8 @@
 :root {
   --nav-height: 60px;     /* Altura padrão da barra de navegação */
   --transition-time: 0.6s; /* Duração padrão para animações */
+  --rec-offset-x: 500px;   /* deslocamento X padrão para recomendações */
+  --rec-offset-y: 200px;   /* deslocamento Y padrão para recomendações */
 }
 
 /* Container wrapper para a imagem de fundo - cobre toda a viewport */
@@ -24,12 +26,14 @@
 }
 
 /* Ajuste solicitado: deslocamento do título de recomendações e do botão */
-.search-results-text h2 {
-  transform: translate(500px, 200px);
+.search-results-text h2,
+.hero-text-recommendations h2 {
+  transform: translate(var(--rec-offset-x), var(--rec-offset-y));
 }
 
 #more-informations {
-  transform: translate(500px, 200px);
+  transform: translate(var(--rec-offset-x), var(--rec-offset-y));
+  transition: transform 0.3s ease, background 0.3s ease;
 }
 
 /* Overlay escuro sobre a imagem de fundo para melhor legibilidade */
@@ -251,13 +255,13 @@ body {
 
 #more-informations:hover {
   background: rgb(255 75 43 / 90%);
-  transform: translateY(-3px) scale(1.05);
+  transform: translate(var(--rec-offset-x), calc(var(--rec-offset-y) - 3px)) scale(1.05);
   box-shadow: 0 8px 20px rgb(0 0 0 / 40%);
   border-color: rgb(255 255 255 / 80%);
 }
 
 #more-informations:active {
-  transform: translateY(1px);
+  transform: translate(var(--rec-offset-x), calc(var(--rec-offset-y) + 1px));
 }
 
 /* Animação de brilho para o título */
