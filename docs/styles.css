@@ -23,6 +23,15 @@
   background-color: transparent;    /* Fundo transparente onde não há imagem */
 }
 
+/* Ajuste solicitado: deslocamento do título de recomendações e do botão */
+.search-results-text h2 {
+  transform: translate(500px, 200px);
+}
+
+#more-informations {
+  transform: translate(500px, 200px);
+}
+
 /* Overlay escuro sobre a imagem de fundo para melhor legibilidade */
 body::before {
   content: '';              /* Necessário para pseudo-elementos */
