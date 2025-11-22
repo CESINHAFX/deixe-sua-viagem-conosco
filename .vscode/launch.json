@@ -12,7 +12,7 @@
         "run",
         "start"
       ],
-      "cwd": "${workspaceFolder}/project_root",
+      "cwd": "${workspaceFolder}/docs",
       "internalConsoleOptions": "neverOpen"
     },
     {
@@ -25,9 +25,9 @@
     {
       "type": "pwa-msedge",
       "request": "launch",
-      "name": "Launch Edge - project_root (http)",
+      "name": "Launch Edge - docs (http)",
       "url": "http://localhost:5500/index.html",
-      "webRoot": "${workspaceFolder}/project_root",
+      "webRoot": "${workspaceFolder}/docs",
       "runtimeArgs": []
     }
   ]

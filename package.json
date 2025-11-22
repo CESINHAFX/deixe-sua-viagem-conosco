@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "npx http-server ./project_root -p 5500",
+    "start": "npx http-server ./docs -p 5500",
     "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  }
   "repository": {
     "type": "git",
     "url": "git+https://github.com/CESINHAFX/deixe-sua-viagem-conosco.git"
