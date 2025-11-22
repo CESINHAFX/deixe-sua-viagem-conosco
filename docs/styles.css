@@ -16,7 +16,7 @@
   position: fixed;         /* Fixa o wrapper em relação à viewport */
   inset: 0;               /* Atalho para top:0, right:0, bottom:0, left:0 */
   z-index: -1;            /* Coloca o fundo atrás de todo o conteúdo */
-  background-image: url("/DEIXE-SUA-VIAGEM-CONOSCO/docs/images/Designer.png"); /* Imagem de fundo */
+  background-image: url("images/Designer.png"); /* Imagem de fundo */
   background-repeat: no-repeat;    /* Evita repetição da imagem */
   background-position: center center; /* Centraliza a imagem */
   background-size: 100% 100%;      /* Estica a imagem para cobrir todo o container */
