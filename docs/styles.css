@@ -5,6 +5,8 @@
   padding: 0;            /* Remove padding padrão */
 }
 
+
+
 /* Variáveis CSS globais para valores reutilizáveis */
 :root {
   --nav-height: 60px;     /* Altura padrão da barra de navegação */
@@ -236,7 +238,7 @@ body {
 #more-informations {
   margin-top: 2em;
   padding: 30px 40px;            /* aumentei o padding */
-  font-size: 1.5rem;             /* aumentei o tamanho da fonte */
+  font-size: 3.0em;             /* aumentei o tamanho da fonte */
   background: rgb(255 75 43 / 80%); /* fundo semi-transparente */
   color: white;
   border: 2px solid rgb(255 255 255 / 60%);
@@ -246,12 +248,14 @@ body {
   text-transform: uppercase;
   letter-spacing: 1px;
   font-weight: bold;
-  position: center;  /* centraliza absolutamente */
+  transform: translate(500px, 200px);  /* centraliza absolutamente */
   z-index: 1000;
   overflow: hidden;
-  box-shadow: 0 5px 15px rgb(0 0 0 / 30%);
+  box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
   animation: buttonPulse 2s infinite; /* adiciona pulsação */
 }
+
+
 
 #more-informations:hover {
   background: rgb(255 75 43 / 90%);
