@@ -1,0 +1,104 @@
+﻿// fragments.js - load HTML fragments into page containers
+(function(){
+  function runFragmentScripts(container) {
+    if (!container) return;
+    const scripts = container.querySelectorAll('script');
+    scripts.forEach(oldScript => {
+      const newScript = document.createElement('script');
+      for (let i = 0; i < oldScript.attributes.length; i++) {
+        const attr = oldScript.attributes[i];
+        newScript.setAttribute(attr.name, attr.value);
+      }
+      newScript.textContent = oldScript.textContent;
+      oldScript.parentNode.replaceChild(newScript, oldScript);
+    });
+  }
+
+  // Try fetching multiple URL variants to accommodate different dev server roots
+  async function fetchWithVariants(url, variantsLimit = 8) {
+    const tried = new Set();
+    const results = [];
+
+    const normalize = (u) => (u || '').replace(/\\/g, '/');
+    const basePath = normalize(location.pathname || '');
+    const dir = basePath.substring(0, basePath.lastIndexOf('/') + 1) || './';
+
+    const variants = [
+      url,
+      './' + url,
+      url.replace(/^\/+/,'') ,
+      dir + url,
+      '/' + url.replace(/^\/+/,'')
+    ];
+
+    // also try climbing up parent dirs using ../ prefixes
+    const parts = dir.split('/').filter(Boolean);
+    for (let i = 1; i <= Math.min(parts.length + 2, variantsLimit); i++) {
+      // create ../, ../../, etc
+      const up = Array(i).fill('..').join('/') + '/';
+      variants.push(up + url);
+    }
+
+    // also try absolute-ish attempts based on root segments
+    for (let i = 0; i < Math.min(parts.length, variantsLimit); i++) {
+      const p = '/' + parts.slice(0, parts.length - i).join('/') + '/';
+      variants.push(p + url);
+    }
+
+    for (const u of variants) {
+      const candidate = normalize(u);
+      if (tried.has(candidate)) continue;
+      tried.add(candidate);
+      try {
+        const resp = await fetch(candidate);
+        if (resp && resp.ok) return resp;
+        results.push({ url: candidate, status: resp ? resp.status : 'no-response' });
+      } catch (e) {
+        results.push({ url: candidate, error: e && e.message ? e.message : String(e) });
+      }
+    }
+
+    const err = new Error('All fetch attempts failed');
+    err.attempts = results;
+    throw err;
+  }
+
+  async function loadFragment(url, containerId, callback) {
+    try {
+      const response = (typeof window.fetchWithVariants === 'function')
+        ? await window.fetchWithVariants(url)
+        : await fetch(url);
+
+      if (!response.ok) throw new Error('Network response was not ok: ' + response.status);
+      const html = await response.text();
+      const container = document.getElementById(containerId);
+      if (!container) return;
+      container.innerHTML = html;
+      markActiveLink(container);
+      runFragmentScripts(container);
+      if (typeof callback === 'function') callback(container);
+    } catch (err) {
+      console.error('Erro ao carregar fragmento:', err);
+    }
+  }
+
+  function markActiveLink(container) {
+    try {
+      const containerEl = typeof container === 'string' ? document.getElementById(container) : container;
+      if (!containerEl) return;
+      const links = containerEl.querySelectorAll('a[href]');
+      const current = window.location.pathname.split('/').pop() || 'index.html';
+      links.forEach(a => {
+        const href = (a.getAttribute('href') || '').split('/').pop();
+        if (href === current) a.classList.add('active');
+      });
+    } catch (e) {
+      console.error('markActiveLink error:', e);
+    }
+  }
+
+  window.loadFragment = loadFragment;
+  window.runFragmentScripts = runFragmentScripts;
+  window.markActiveLink = markActiveLink;
+  window.fetchWithVariants = fetchWithVariants;
+})();

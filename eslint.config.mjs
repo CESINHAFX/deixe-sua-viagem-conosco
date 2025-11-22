@@ -1,54 +1,83 @@
+// eslint.config.mjs
 import js from "@eslint/js";
 import globals from "globals";
 import json from "@eslint/json";
+import markdown from "@eslint/markdown";
 import css from "@eslint/css";
-import { defineConfig } from "eslint/config";
 import html from "eslint-plugin-html";
-import importPlugin from "eslint-plugin-import";
-import promise from "eslint-plugin-promise";
-import node from "eslint-plugin-node";
+import { defineConfig } from "eslint/config";
+import prettierPlugin from "eslint-plugin-prettier";
+import prettierConfig from "eslint-config-prettier";
 
 export default defineConfig([
+  // JavaScript
   {
     files: ["**/*.{js,mjs,cjs}"],
-    plugins: { js, import: importPlugin, promise, node },
-    extends: ["js/recommended", "plugin:import/recommended", "plugin:promise/recommended", "plugin:node/recommended", "prettier"],
+    plugins: { prettier: prettierPlugin },
+    extends: [
+      js.configs.recommended, // regras oficiais do ESLint
+      prettierConfig, // desativa regras que conflitam com Prettier
+    ],
     languageOptions: {
-      globals: globals.browser,
+      ecmaVersion: "latest",
       sourceType: "module",
+      globals: {
+        ...globals.browser,
+        ...globals.node,
+      },
     },
     rules: {
       "no-unused-vars": "warn",
       "no-undef": "error",
-      "semi": ["error", "always"],
+      semi: ["error", "always"],
+      "prettier/prettier": "error", // força formatação Prettier
     },
   },
+
+  // JSON
   {
     files: ["**/*.json"],
     plugins: { json },
     language: "json/json",
-    extends: ["json/recommended"],
+    extends: [json.configs.recommended],
   },
+
+  // JSONC
   {
     files: ["**/*.jsonc"],
     plugins: { json },
     language: "json/jsonc",
-    extends: ["json/recommended"],
+    extends: [json.configs.recommended],
   },
+
+  // JSON5
   {
     files: ["**/*.json5"],
     plugins: { json },
     language: "json/json5",
-    extends: ["json/recommended"],
+    extends: [json.configs.recommended],
   },
+
+  // Markdown
+  {
+    files: ["**/*.md"],
+    plugins: { markdown },
+    language: "markdown/commonmark",
+    extends: [markdown.configs.recommended],
+  },
+
+  // CSS
   {
     files: ["**/*.css"],
     plugins: { css },
     language: "css/css",
-    extends: ["css/recommended"],
+    extends: [css.configs.recommended],
   },
+
+  // HTML
   {
     files: ["**/*.html"],
     plugins: { html },
+    // O plugin já habilita linting em <script> dentro do HTML
   },
 ]);

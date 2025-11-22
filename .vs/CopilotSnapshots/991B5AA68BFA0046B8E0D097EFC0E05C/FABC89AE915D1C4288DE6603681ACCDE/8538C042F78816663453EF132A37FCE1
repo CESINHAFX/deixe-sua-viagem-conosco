@@ -1,0 +1,111 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>About Us - Leave Your Trip to Us</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
+  <script src="js/page-transitions.js" defer></script>
+  <script src="fragments/functions.js"></script>
+</head>
+<body>
+<!-- Classe específica para estilos da página de contato -->
+<body class="contact-page">
+
+<!-- Área para injeção do cabeçalho compartilhado -->
+<div id="shared-header"></div>
+
+<!-- Conteúdo principal da página de contato -->
+<main>
+  <!-- Título principal da página -->
+  <div class="contact_us-page">
+    <h1>Contact Us</h1>
+  </div>
+
+  <!-- Formulário de contato -->
+  <div class="table-placeholder">
+    <!-- Campo Nome -->
+    <h2>Name</h2>
+    <input type="text" 
+           id="Name" 
+           placeholder="Enter your name" 
+           aria-label="Name">
+
+    <!-- Campo Email -->
+    <h3>Email</h3>
+    <input type="text" 
+           id="Email" 
+           placeholder="Enter your email" 
+           aria-label="Email">
+
+    <!-- Campo Mensagem -->
+    <h4>Message</h4>
+    <input type="text" 
+           id="Message" 
+           placeholder="Enter your message" 
+           aria-label="Message">
+
+    <!-- Botão de envio -->
+    <button class="Submit" type="button">Submit</button>
+  </div>
+</main>
+  <!-- footer compartilhado será injetado aqui -->
+  <div id="shared-footer"></div>
+
+  <script>
+    /**
+     * Carrega fragmentos HTML (header/footer) de forma assíncrona
+     * @param {string} url - URL do fragmento a ser carregado
+     * @param {string} containerId - ID do elemento onde o fragmento será inserido
+     */
+    function loadFragment(url, containerId) {
+      // Faz requisição HTTP para buscar o fragmento
+      fetch(url)
+        .then(function(response) {
+          // Verifica se a resposta foi bem-sucedida
+          if (!response.ok) throw new Error('Network response was not ok: ' + response.status);
+          return response.text();
+        })
+        .then(function(html) {
+          // Busca o container e injeta o HTML
+          var container = document.getElementById(containerId);
+          if (!container) return;
+          container.innerHTML = html;
+          // Atualiza o estado dos links no menu
+          markActiveLink(container);
+        })
+        .catch(function(err) {
+          console.error('Erro ao carregar fragmento:', err);
+        });
+    }
+
+    // destaque do link ativo no menu
+    function markActiveLink(container) {
+      var el = typeof container === 'string' ? document.getElementById(container) : container;
+      if (!el) return;
+      var links = el.querySelectorAll('a[href]');
+      var current = window.location.pathname.split('/').pop() || 'index.html';
+      links.forEach(function(a) {
+        var hrefFile = (a.getAttribute('href') || '').split('/').pop();
+        if (hrefFile === current) a.classList.add('active'); else a.classList.remove('active');
+      });
+    }
+
+    // comportamento dos botões de contato (exemplo)
+    document.addEventListener('click', function(e) {
+      var btn = e.target.closest('.btn-contact');
+      if (!btn) return;
+      var name = btn.dataset.name || 'Contato';
+      var msg = prompt('Enviar mensagem para ' + name + '\nDigite sua mensagem:');
+      if (msg) alert('Mensagem enviada a ' + name + ':\n\n' + msg);
+    });
+
+    
+   // carregar header e footer (caminhos relativos)
+    loadFragment('../fragments/header.html', 'shared-header');
+    loadFragment('../fragments/footer.html', 'shared-footer');
+  </script>
+</body>
+</html>

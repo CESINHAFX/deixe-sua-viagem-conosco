@@ -16,33 +16,98 @@
   
   <!-- Scripts JavaScript necessários -->
   <script src="js/page-transitions.js" defer></script>            <!-- Sistema de transições de página (carregamento defer) -->
+  <script src="js/fragments.js" defer></script>
+    <script>
+      // If the page was opened via file://, show a visible notice with a link
+      // to the local dev server so users can open the same page over HTTP.
+      if (location.protocol === 'file:') {
+        try {
+          const container = document.createElement('div');
+          container.setAttribute('role', 'alert');
+          container.style.cssText = 'position:fixed;left:12px;top:12px;right:12px;padding:14px 16px;background:#fff3cd;border:1px solid #ffeeba;color:#222;z-index:2147483647;font-family:system-ui,Segoe UI,Roboto,Arial,sans-serif;border-radius:6px;box-shadow:0 6px 18px rgba(0,0,0,0.08);';
+          const linkHttp = 'http://127.0.0.1:5500' + location.pathname.replace(/^.*[\\/]/, '/');
+          container.innerHTML = `AVISO: você abriu a página via <code>file://</code>. Módulos ES e fetch() são bloqueados. Abra via <a href="${linkHttp}">${linkHttp}</a> ou <a href="http://localhost:5500${location.pathname.replace(/^.*[\\/]/, '/')}">http://localhost:5500${location.pathname.replace(/^.*[\\/]/, '/')}</a> (inicie o servidor com <code>python -m http.server 5500</code> ou Live Server).`;
+          const closeBtn = document.createElement('button');
+          closeBtn.textContent = 'Fechar';
+          closeBtn.style.cssText = 'margin-left:12px;padding:4px 8px;border-radius:4px;border:1px solid rgba(0,0,0,0.06);background:white;cursor:pointer;';
+          closeBtn.addEventListener('click', () => container.remove());
+          container.appendChild(closeBtn);
+          document.addEventListener('DOMContentLoaded', () => document.body.appendChild(container));
+        } catch (e) {
+          // ignore errors when running in very restricted environments
+        }
+      }
+    </script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.6.2/fuse.min.js"></script> <!-- Biblioteca para busca fuzzy -->
+  <script type="module" src="js/search.js"></script>               <!-- Script de busca personalizado -->
 </head>
 <body>
+<div class="bg-wrapper"></div>
 
+<div id="shared-header"></div>
     <!-- Conteúdo específico da página -->
   <main>
+    <div>
+      <section class="recommendation-trip-section">
+        <div class="recommendation-statics-beach-food">
+          <h4>Explore your 
+          next destination at</h4>
+          <article class="recommendations-info">
 
-    <section class="search-results">
-      <div class="search-results-text">
-        <h4>Explore your 
-    next destination at</h4>
-        
-        <button id="more-informations" type="button">Leave your trip with us, can I have everything ready for the trip of your dreams?👍</button>
-        <ul>
-        <div class="cities-recommendation">
-        <h5>Recommended Cities</h5>
-        <li id="'cities-recommendation-list">
-            <script>
-                // Adicione esta função antes da função loadFragment
-/**
- * Função que reexecuta scripts dentro de fragmentos HTML carregados dinamicamente
- * @param {HTMLElement} container - Elemento contendo os scripts a serem reexecutados
- */
+            <p>It encourages you to explore of unfamiliar 
+              territories, embracing diverse cultures and 
+              landscapes, while pursuing the desired 
+              destination that captivates the heart and
+              ignites a sense of wonder.</p>
+          </article>
+        </div>
+        <div class="recommendation-cities-list">
+          <h5>Recommended Cities</h5>
+              <div id="cities-recommendation-list-static" class="cities-recommendation">
+                <div class="recommendation-card">
+                  <img src="images/Copilot_20251027_052534.png" alt="Rio de Janeiro" onerror="this.src='images/placeholder.svg'">
+                  <div class="recommendation-card-content">
+                    <h3>Rio de Janeiro, Brazil</h3>
+                    
+                    <p>Experience Rio's vibrant spirit. Highlights: carnival celebrations, Christ the Redeemer,
+                      Copacabana and Ipanema beaches, samba dancing, Sugarloaf Mountain cable car, and
+                      Tijuca National Park.</p>
+                  </div>
+                </div>
+
+                <div class="recommendation-card">
+                  <img src="images/Copilot_20251027_052544.png" alt="Tokyo, Japan" onerror="this.src='images/placeholder.svg'">
+                  <div class="recommendation-card-content">
+                    <h3>Tokyo, Japan</h3>
+                   
+                    <p>Immerse in Tokyo's unique blend of tradition and future. Attractions: ancient temples,
+                      modern Shibuya crossing, anime culture in Akihabara, sushi at Tsukiji, cherry blossoms in Ueno Park, and shopping in Harajuku.</p>
+                  </div>
+                </div>
+              </div>
+        </div>
+      </section>
+<script>
+
+
 function runFragmentScripts(container) {
   // Busca todos os elementos <script> dentro do container
   const scripts = container.getElementsByTagName('script');
-  
+  const recommendationsContainer = document.getElementById('cities-recommendation-list-static');
+  const searchButton = document.getElementById('btnSearch');
+
+
+  if(searchButton)
+    searchButton.addEventListener("click", () =>{
+      console.log("searchButton existe");
+    });
+
+  if(recommendationsContainer)
+    recommendationsContainer.addEventListener("click", () =>{
+    console.log("containeir existe");
+    });
+
+  recommendationsContainer.textContent = 'Rio de janeiro, Brazil' + "Tokyo, Japan"; 
   // Itera sobre cada script encontrado
   Array.from(scripts).forEach(script => {
     // Cria um novo elemento <script> para reexecução
@@ -84,22 +149,48 @@ function runFragmentScripts(container) {
         });
     }
 
-    // aplica classe .active ao link que corresponde à página atual
+    // Busca o container de recomendações
+    const recommendationsContainer = document.getElementById('cities-recommendation-list-static');
+    // Busca o botão de busca
+    const searchButton = document.getElementById('btnSearch');
+     //3. Anexar o ouvinte de evento ao botão de busca
+    if (searchButton && recommendationsContainer) {
+      searchButton && recommendationsContainer.addEventListener("click", () => {
+        console.log("searchButton existe e recommendations container");
+      //// O tipo de evento é 'click'
+      searchButton.addEventListener("click", function(event) {
+        //// Altera o conteúdo do container de recomendações para 'resultsContainer' que vai ser definido na linha 262
+        recommendationsContainer.textContent = "results";
+      })
+      });
+    }
+      
+      
+      
+
     function markActiveLink(container) {
       try {
         var containerEl = typeof container === 'string' ? document.getElementById(container) : container;
         if (!containerEl) return;
-        var links = containerEl.querySelectorAll('a[href]');
+        var links = containerEl.querySelectorAll('a[href]'); 
+       
         var current = window.location.pathname.split('/').pop() || 'index.html';
         links.forEach(function(a) {
           var href = (a.getAttribute('href') || '').split('/').pop();
           if (href === current) a.classList.add('active');
         });
+    
+        
       } catch (e) {
-        console.error('markActiveLink error:', e);
+        console.error("markActiveLink error:", e);
       }
     }
+    
 
+            
+    // aplica classe .active ao link que corresponde à página atual
+    
+    
     // configura os botões do header
     // Add this helper function for text normalization
 /**
@@ -219,9 +310,9 @@ function displaySearchResults(results) {
           <div class="items-grid">
             ${items.map(item => `
               <div class="result-card">
-                <img src="${item.imageUrl || './images/placeholder.png'}" 
-                     alt="${item.name || 'Image'}"
-                     onerror="this.onerror=null; this.src='./images/placeholder.png';">
+                 <img src="${item.imageUrl || './images/placeholder.svg'}" 
+                   alt="${item.name || 'Image'}"
+                   onerror="this.onerror=null; this.src='./images/placeholder.svg';">
                 <h4>${item.name || 'Unnamed Location'}</h4>
                 <p>${item.description || 'No description available'}</p>
               </div>
@@ -274,9 +365,7 @@ const termMapper = {
   'gastronomia': ['food', 'culture']
 };
 
-  // carregar header e footer (caminhos relativos)
-    loadFragment('fragments/header.html', 'shared-header');
-    loadFragment('fragments/footer.html', 'shared-footer');
+  
 
     // comportamento do botão hero: rolar até o footer
     document.addEventListener('click', function(e) {
@@ -296,93 +385,57 @@ const termMapper = {
         if (document.getElementById('Research')) document.getElementById('Research').value = '';
       }
     });
-            </script>
-         
-        </ul>
-    </div>
+</script>
     
-    </div>
-      <div style="height:4000px"></div>
-                                  <!-- espaço demo para rolagem -->
-    </section>
+  </section>
   </main>
 
 <!-- header compartilhado será injetado aqui -->
 <div id="shared-header"></div>
 
-  <!-- Conteúdo específico da página About Us -->
-<main>
-<div class="contact_us-page">
-    <h1>Contact Us</h1>
-</div>
-<div class="table-placeholder">
-    <h2>Name</h2>
-    <input type="text" id="Name" placeholder="Enter your name" aria-label="Name">
-    <h3>Email</h3>
-    <input type="text" id="Email" placeholder="Enter your email" aria-label="Email">
-    <h4>Message</h4>
-    <input type="text" id="Message" placeholder="Enter your message" aria-label="Message">
-    <button class="Submit" type="button">Submit</button>
-</div>
-</main>
+
   <!-- footer compartilhado será injetado aqui -->
   <div id="shared-footer"></div>
 
   <script>
-    // carregar fragments (caminhos relativos)
-    /**
- * Carrega fragmentos HTML (header/footer) dinamicamente via AJAX
- * @param {string} url - URL do fragmento a ser carregado
- * @param {string} containerId - ID do elemento onde o fragmento será inserido
- */
-function loadFragment(url, containerId) {
-      // Faz requisição HTTP para buscar o fragmento
-      fetch(url)
-        .then(function(response) {
-          // Verifica se a resposta é válida
-          if (!response.ok) throw new Error('Network response was not ok: ' + response.status);
-          // Converte resposta para texto
-          return response.text();
-        })
-        .then(function(html) {
-          // Busca o container onde o fragmento será inserido
-          var container = document.getElementById(containerId);
-          if (!container) return;
-          // Insere o HTML e atualiza links ativos
-          container.innerHTML = html;
-          markActiveLink(container);
-        })
-        .catch(function(err) {
-          // Log de erro se algo falhar
-          console.error('Erro ao carregar fragmento:', err);
+   
+        document.addEventListener('click', function (e) {
+            if (e.target && e.target.id === 'more-informations') {
+                var footer = document.getElementById('shared-footer');
+                if (footer) footer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
         });
-    }
 
-    // destaque do link ativo no menu
-    function markActiveLink(container) {
-      var el = typeof container === 'string' ? document.getElementById(container) : container;
-      if (!el) return;
-      var links = el.querySelectorAll('a[href]');
-      var current = window.location.pathname.split('/').pop() || 'index.html';
-      links.forEach(function(a) {
-        var hrefFile = (a.getAttribute('href') || '').split('/').pop();
-        if (hrefFile === current) a.classList.add('active'); else a.classList.remove('active');
-      });
-    }
+        // comportamento dos botões do header (search / reset)
+        document.addEventListener('click', function (e) {
+            if (e.target && e.target.id === 'btnSearch') {
+                var q = document.getElementById('Research') ? document.getElementById('Research').value : '';
+                alert('Pesquisar por: ' + q);
+            }
+            if (e.target && e.target.id === 'clean') {
+                if (document.getElementById('Research')) document.getElementById('Research').value = '';
+            }
+        });
 
-    // comportamento dos botões de contato (exemplo)
-    document.addEventListener('click', function(e) {
-      var btn = e.target.closest('.btn-contact');
-      if (!btn) return;
-      var name = btn.dataset.name || 'Contato';
-      var msg = prompt('Enviar mensagem para ' + name + '\nDigite sua mensagem:');
-      if (msg) alert('Mensagem enviada a ' + name + ':\n\n' + msg);
-    });
+        // Load shared header/footer usando loadFragment definido em js/fragments.js
+        if (typeof loadFragment === 'function') {
+            // use consistent relative paths (fragments/...) so fragments.fetchWithVariants can resolve variants reliably
+            loadFragment('fragments/header.html', 'shared-header', () => {
+                try {
+                    if (typeof window.setupHeaderButtons === 'function') {
+                        window.setupHeaderButtons();
+                    }
+                } catch (e) { console.error('setupHeaderButtons callback error', e); }
+            });
+            loadFragment('fragments/footer.html', 'shared-footer');
+        } else {
+            console.warn('loadFragment não disponível. Verifique se js/fragments.js foi carregado corretamente.');
+        }
 
-    
 
-  </script>
-  </li>
-  </ul>
+ </script>
+
 </body>
 </html>
+
+

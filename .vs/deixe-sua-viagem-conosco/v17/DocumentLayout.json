@@ -1,22 +1,45 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\soare\\Downloads\\deixe-sua-viagem-conosco\\",
+  "WorkspaceRootPath": "F:\\deixe-sua-viagem-conosco\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\soare\\Downloads\\deixe-sua-viagem-conosco\\project_root\\index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:project_root\\index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|F:\\deixe-sua-viagem-conosco\\project_root\\index.html||{C76D83F8-A489-11D0-8195-00A0C91BBEE3}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:project_root\\index.html||{C76D83F8-A489-11D0-8195-00A0C91BBEE3}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\soare\\Downloads\\deixe-sua-viagem-conosco\\project_root\\js\\fragments.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}|",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:project_root\\js\\fragments.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}|"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|F:\\deixe-sua-viagem-conosco\\project_root\\js\\javascript_complete_guide.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:project_root\\js\\javascript_complete_guide.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\soare\\Downloads\\deixe-sua-viagem-conosco\\project_root\\js\\search.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}|",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:project_root\\js\\search.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}|"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|F:\\deixe-sua-viagem-conosco\\project_root\\js\\fragments.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:project_root\\js\\fragments.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\soare\\Downloads\\deixe-sua-viagem-conosco\\fragments\\header.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:fragments\\header.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|F:\\deixe-sua-viagem-conosco\\project_root\\js\\main.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:project_root\\js\\main.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|F:\\deixe-sua-viagem-conosco\\project_root\\js\\search.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:project_root\\js\\search.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|F:\\deixe-sua-viagem-conosco\\project_root\\js\\page-transitions.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:project_root\\js\\page-transitions.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|F:\\deixe-sua-viagem-conosco\\project_root\\js\\utils.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:project_root\\js\\utils.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\soare\\Downloads\\deixe-sua-viagem-conosco\\fragments\\header.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|F:\\deixe-sua-viagem-conosco\\Novo Arquivo||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Novo Arquivo||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|F:\\deixe-sua-viagem-conosco\\project_root\\contact_us.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:project_root\\contact_us.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,64 +49,130 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
-              "Name": "ST:129:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "header.html",
-              "DocumentMoniker": "C:\\Users\\soare\\Downloads\\deixe-sua-viagem-conosco\\fragments\\header.html",
-              "RelativeDocumentMoniker": "fragments\\header.html",
-              "ToolTip": "C:\\Users\\soare\\Downloads\\deixe-sua-viagem-conosco\\fragments\\header.html",
-              "RelativeToolTip": "fragments\\header.html",
-              "ViewState": "AgIAAD0AAAAAAAAAAEBlwEYAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
-              "WhenOpened": "2025-11-01T13:40:00.671Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "search.js",
-              "DocumentMoniker": "C:\\Users\\soare\\Downloads\\deixe-sua-viagem-conosco\\project_root\\js\\search.js",
-              "RelativeDocumentMoniker": "project_root\\js\\search.js",
-              "ToolTip": "C:\\Users\\soare\\Downloads\\deixe-sua-viagem-conosco\\project_root\\js\\search.js",
-              "RelativeToolTip": "project_root\\js\\search.js",
-              "ViewState": "AgIAAN0AAAAAAAAAAIBJwAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2025-11-01T13:29:55.988Z"
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "fragments.js",
-              "DocumentMoniker": "C:\\Users\\soare\\Downloads\\deixe-sua-viagem-conosco\\project_root\\js\\fragments.js",
-              "RelativeDocumentMoniker": "project_root\\js\\fragments.js",
-              "ToolTip": "C:\\Users\\soare\\Downloads\\deixe-sua-viagem-conosco\\project_root\\js\\fragments.js",
-              "RelativeToolTip": "project_root\\js\\fragments.js",
-              "ViewState": "AgIAACgAAAAAAAAAAAAWwDMAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2025-11-01T13:29:19.831Z"
+              "Title": "javascript_complete_guide.txt",
+              "DocumentMoniker": "F:\\deixe-sua-viagem-conosco\\project_root\\js\\javascript_complete_guide.txt",
+              "RelativeDocumentMoniker": "project_root\\js\\javascript_complete_guide.txt",
+              "ToolTip": "F:\\deixe-sua-viagem-conosco\\project_root\\js\\javascript_complete_guide.txt",
+              "RelativeToolTip": "project_root\\js\\javascript_complete_guide.txt",
+              "ViewState": "AgIAACUAAAAAAAAAAAAuwCkAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
+              "WhenOpened": "2025-11-09T06:55:25.197Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "index.html",
-              "DocumentMoniker": "C:\\Users\\soare\\Downloads\\deixe-sua-viagem-conosco\\project_root\\index.html",
+              "DocumentMoniker": "F:\\deixe-sua-viagem-conosco\\project_root\\index.html",
               "RelativeDocumentMoniker": "project_root\\index.html",
-              "ToolTip": "C:\\Users\\soare\\Downloads\\deixe-sua-viagem-conosco\\project_root\\index.html",
+              "ToolTip": "F:\\deixe-sua-viagem-conosco\\project_root\\index.html",
               "RelativeToolTip": "project_root\\index.html",
-              "ViewState": "AgIAADYAAAAAAAAAAAAAADsAAAA2AAAAAAAAAA==",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
-              "WhenOpened": "2025-11-01T13:26:29.4Z",
+              "WhenOpened": "2025-11-08T22:28:05.097Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "search.js",
+              "DocumentMoniker": "F:\\deixe-sua-viagem-conosco\\project_root\\js\\search.js",
+              "RelativeDocumentMoniker": "project_root\\js\\search.js",
+              "ToolTip": "F:\\deixe-sua-viagem-conosco\\project_root\\js\\search.js",
+              "RelativeToolTip": "project_root\\js\\search.js",
+              "ViewState": "AgIAAEwAAAAAAAAAAAAUwFEAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-11-04T02:15:21.294Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "contact_us.html",
+              "DocumentMoniker": "F:\\deixe-sua-viagem-conosco\\project_root\\contact_us.html",
+              "RelativeDocumentMoniker": "project_root\\contact_us.html",
+              "ToolTip": "F:\\deixe-sua-viagem-conosco\\project_root\\contact_us.html",
+              "RelativeToolTip": "project_root\\contact_us.html",
+              "ViewState": "AgIAAG0AAAAAAAAAAABBwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2025-11-03T06:27:42.997Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "main.js",
+              "DocumentMoniker": "F:\\deixe-sua-viagem-conosco\\project_root\\js\\main.js",
+              "RelativeDocumentMoniker": "project_root\\js\\main.js",
+              "ToolTip": "F:\\deixe-sua-viagem-conosco\\project_root\\js\\main.js",
+              "RelativeToolTip": "project_root\\js\\main.js",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAA7AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-11-03T04:38:48.145Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "utils.js",
+              "DocumentMoniker": "F:\\deixe-sua-viagem-conosco\\project_root\\js\\utils.js",
+              "RelativeDocumentMoniker": "project_root\\js\\utils.js",
+              "ToolTip": "F:\\deixe-sua-viagem-conosco\\project_root\\js\\utils.js",
+              "RelativeToolTip": "project_root\\js\\utils.js",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAgwBgAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-11-03T01:49:02.787Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Novo Arquivo",
+              "DocumentMoniker": "F:\\deixe-sua-viagem-conosco\\Novo Arquivo",
+              "RelativeDocumentMoniker": "Novo Arquivo",
+              "ToolTip": "F:\\deixe-sua-viagem-conosco\\Novo Arquivo",
+              "RelativeToolTip": "Novo Arquivo",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-11-03T01:42:49.679Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "page-transitions.js",
+              "DocumentMoniker": "F:\\deixe-sua-viagem-conosco\\project_root\\js\\page-transitions.js",
+              "RelativeDocumentMoniker": "project_root\\js\\page-transitions.js",
+              "ToolTip": "F:\\deixe-sua-viagem-conosco\\project_root\\js\\page-transitions.js",
+              "RelativeToolTip": "project_root\\js\\page-transitions.js",
+              "ViewState": "AgIAABEAAAAAAAAAAAAwwAkAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-11-03T02:08:15.148Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "fragments.js",
+              "DocumentMoniker": "F:\\deixe-sua-viagem-conosco\\project_root\\js\\fragments.js",
+              "RelativeDocumentMoniker": "project_root\\js\\fragments.js",
+              "ToolTip": "F:\\deixe-sua-viagem-conosco\\project_root\\js\\fragments.js",
+              "RelativeToolTip": "project_root\\js\\fragments.js",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAA4AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-11-03T01:16:57.346Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "header.html",
+              "DocumentMoniker": "C:\\Users\\soare\\Downloads\\deixe-sua-viagem-conosco\\fragments\\header.html",
+              "ToolTip": "C:\\Users\\soare\\Downloads\\deixe-sua-viagem-conosco\\fragments\\header.html",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2025-11-03T01:16:16.826Z"
             }
           ]
         }

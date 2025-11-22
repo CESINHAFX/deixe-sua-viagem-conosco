@@ -1,4 +1,4 @@
-/* Reset global para garantir consistência entre navegadores */
+
 * { 
   box-sizing: border-box; /* Inclui padding e border na largura/altura total */
   margin: 0;              /* Remove margens padrão */
@@ -213,15 +213,16 @@ body {
   margin: 0;
   line-height: 1.3;             /* aumentei o espaçamento entre linhas */
   white-space: pre-line;        /* permite quebra de linha após a vírgula */
-  position: relative;
+  position: center;  /* centraliza absolutamente */
   z-index: 1000;
   animation: titleGlow 2s ease-in-out infinite alternate; /* adiciona brilho animado */
+
 }
 
 /* Botão do hero */
 #more-informations {
   margin-top: 2em;
-  padding: 20px 40px;            /* aumentei o padding */
+  padding: 30px 40px;            /* aumentei o padding */
   font-size: 1.5rem;             /* aumentei o tamanho da fonte */
   background: rgb(255 75 43 / 80%); /* fundo semi-transparente */
   color: white;
@@ -232,7 +233,8 @@ body {
   text-transform: uppercase;
   letter-spacing: 1px;
   font-weight: bold;
-  position: relative;
+  position: center;  /* centraliza absolutamente */
+  z-index: 1000;
   overflow: hidden;
   box-shadow: 0 5px 15px rgb(0 0 0 / 30%);
   animation: buttonPulse 2s infinite; /* adiciona pulsação */
@@ -526,15 +528,14 @@ main.page-enter {
 /* Estilos para resultados da busca */
 .search-results {
   position: absolute;
-  top: 100%;
-  right: 0;
-  width: 300px;
-  max-height: 400px;
-  overflow-y: auto;
-  background: rgb(51 51 51 / 95%);
-  border-radius: 4px;
-  box-shadow: 0 4px 12px rgb(0 0 0 / 20%);
-  z-index: 1000;
+  padding: 40px 20px;  
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  max-width: 1200px;
+  display: flex;
+  flex-direction: column;
 }
 
 .search-results ul {
@@ -544,10 +545,29 @@ main.page-enter {
 }
 
 .search-results li {
-  padding: 12px;
+  box-sizing: border-box;
+  
+  padding: 36px;
   border-bottom: 1px solid rgb(255 255 255 / 10%);
   cursor: pointer;
   transition: background 0.3s;
+}
+
+.cities-recommendation-list-static li img {
+
+  width: 481px; /* largura fixa em pixels conforme solicitado */
+  height: 112px; /* altura fixa em pixels conforme solicitado */
+  object-fit: cover; /* preserva o recorte sem distorcer */
+  border-radius: 8px;
+
+  border-radius: 8px;
+}
+
+.cities-recommendation-list-static li p {
+  color: white;
+  
+  font-size: 0.9rem;
+
 }
 
 .search-results li:hover {
@@ -573,6 +593,8 @@ main.page-enter {
   padding: 40px 20px;
   max-width: 1200px;
   margin: 0 auto;
+  width: 100%;        /* ocupa toda a largura */
+
   min-height: calc(100vh - var(--nav-height));
   display: flex;
   flex-direction: column;
@@ -657,7 +679,6 @@ main.page-enter {
   line-height: 1.4;
   display: -webkit-box;
   line-clamp: 3;
-  -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
@@ -706,4 +727,40 @@ main.page-enter {
     font-size: 1.8em;
   }
 }
+.recommendations-hero h4 {
+  font-size: 2rem;
+  line-height: 1.05;
+  margin-bottom: 16px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.recommendations-info p {
+  color: rgba(255,255,255,0.9);
+  font-size: 1rem;
+  margin-bottom: 24px;
+}
+.recommendation-cities-list h5 {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 20px;
+  align-items: start;
+}
+/* Títulos e texto */
+.cities-recommendation-static h6 {
+  font-size: 1rem;
+  margin: 0;
+  font-weight: 700;
+}
 
+.nav-footer {
+  display: flex;                  /* ativa flexbox */
+  justify-content: space-between; /* h3 à esquerda, botão à direita */
+  align-items: flex-end;          /* ambos alinhados no fundo */
+  min-height: 80px;
+  padding: 10px;
+}
+
+.nav-footer h3,
+.nav-footer button {
+  margin: 0;   /* remove margens extras */
+}

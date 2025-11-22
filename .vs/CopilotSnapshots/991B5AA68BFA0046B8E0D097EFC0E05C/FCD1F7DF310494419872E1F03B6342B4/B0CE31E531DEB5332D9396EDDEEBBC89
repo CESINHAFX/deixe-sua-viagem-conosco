@@ -1,0 +1,51 @@
+﻿// fragments.js - load HTML fragments into page containers
+(function(){
+  function runFragmentScripts(container) {
+    if (!container) return;
+    const scripts = container.querySelectorAll('script');
+    scripts.forEach(oldScript => {
+      const newScript = document.createElement('script');
+      for (let i = 0; i < oldScript.attributes.length; i++) {
+        const attr = oldScript.attributes[i];
+        newScript.setAttribute(attr.name, attr.value);
+      }
+      newScript.textContent = oldScript.textContent;
+      oldScript.parentNode.replaceChild(newScript, oldScript);
+    });
+  }
+
+  async function loadFragment(url, containerId, callback) {
+    try {
+      const response = await fetch(url);
+      if (!response.ok) throw new Error('Network response was not ok: ' + response.status);
+      const html = await response.text();
+      const container = document.getElementById(containerId);
+      if (!container) return;
+      container.innerHTML = html;
+      markActiveLink(container);
+      runFragmentScripts(container);
+      if (typeof callback === 'function') callback(container);
+    } catch (err) {
+      console.error('Erro ao carregar fragmento:', err);
+    }
+  }
+
+  function markActiveLink(container) {
+    try {
+      const containerEl = typeof container === 'string' ? document.getElementById(container) : container;
+      if (!containerEl) return;
+      const links = containerEl.querySelectorAll('a[href]');
+      const current = window.location.pathname.split('/').pop() || 'index.html';
+      links.forEach(a => {
+        const href = (a.getAttribute('href') || '').split('/').pop();
+        if (href === current) a.classList.add('active');
+      });
+    } catch (e) {
+      console.error('markActiveLink error:', e);
+    }
+  }
+
+  window.loadFragment = loadFragment;
+  window.runFragmentScripts = runFragmentScripts;
+  window.markActiveLink = markActiveLink;
+})();
