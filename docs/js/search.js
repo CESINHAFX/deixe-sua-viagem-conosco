@@ -242,7 +242,11 @@ export async function searchDestinations(searchTerm) {
         <img src="${city.imageUrl || "images/placeholder.svg"}" alt="${city.name}" onerror="this.src='images/placeholder.svg'">
         <div class="recommendation-card-content">
           <h3>${city.name}</h3>
+<<<<<<< Updated upstream
           <p class="score">Match: ${Math.round((city.score || 0)*100)}%</p>
+=======
+          
+>>>>>>> Stashed changes
           <p>${city.description || "Sem descrição disponível"}</p>
         </div>
       </div>`,
